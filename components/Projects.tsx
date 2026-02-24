@@ -3,7 +3,7 @@ import { projects } from './data/projects'
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 px-16" style={{ background: '#080810' }}>
+    <section id="projects" className="py-24 px-4 sm:px-8 lg:px-16" style={{ background: '#080810' }}>
       <ScrollReveal>
         <p className="font-mono text-xs text-purple tracking-[0.15em] uppercase mb-2">
           // My Work
@@ -18,7 +18,7 @@ export default function Projects() {
         </h2>
       </ScrollReveal>
 
-      <div className="grid gap-6" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))' }}>
+      <div className="grid gap-6" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(min(340px, 100%), 1fr))' }}>
         {projects.map((project, i) => (
           <ScrollReveal key={project.id} delay={i * 100}>
             <div

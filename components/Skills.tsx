@@ -3,7 +3,7 @@ import { skillCategories } from './data/skills'
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 px-16" style={{ background: '#0d0d1a' }}>
+    <section id="skills" className="py-24 px-4 sm:px-8 lg:px-16" style={{ background: '#0d0d1a' }}>
       <ScrollReveal>
         <p className="font-mono text-xs text-purple tracking-[0.15em] uppercase mb-2">
           // Expertise
@@ -18,7 +18,7 @@ export default function Skills() {
         </h2>
       </ScrollReveal>
 
-      <div className="grid gap-6" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))' }}>
+      <div className="grid gap-6" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))' }}>
         {skillCategories.map((cat, i) => (
           <ScrollReveal key={cat.title} delay={i * 80}>
             <div

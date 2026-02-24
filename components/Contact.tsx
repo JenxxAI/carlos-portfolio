@@ -23,7 +23,7 @@ const socials = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-32 px-16 text-center" style={{ background: '#080810' }}>
+    <section id="contact" className="py-32 px-4 sm:px-8 lg:px-16 text-center" style={{ background: '#080810' }}>
       <div className="max-w-xl mx-auto">
         <ScrollReveal>
           <p className="font-mono text-xs text-purple tracking-[0.15em] uppercase mb-2">

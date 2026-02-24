@@ -4,8 +4,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center overflow-hidden"
-      style={{ padding: '8rem 4rem 4rem' }}
+      className="relative min-h-screen flex items-center overflow-hidden px-4 sm:px-8 lg:px-20 pt-32 pb-16"
     >
       {/* Grid background */}
       <div className="hero-grid" />

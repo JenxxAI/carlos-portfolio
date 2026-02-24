@@ -12,10 +12,10 @@ export default function About() {
   return (
     <section
       id="about"
-      className="py-24 px-16 grid gap-16 items-center"
+      className="py-24 px-4 sm:px-8 lg:px-16 grid gap-16 items-center"
       style={{
         background: '#0d0d1a',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))',
       }}
     >
       {/* Left: text */}
