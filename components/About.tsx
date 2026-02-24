@@ -74,12 +74,17 @@ export default function About() {
         <div className="flex flex-col items-center gap-6">
           {/* Avatar */}
           <div
-            className="relative rounded-2xl overflow-hidden"
+            className="relative rounded-full overflow-hidden flex-shrink-0"
             style={{
               width: 220,
               height: 220,
-              border: '2px solid #1e1e35',
-              boxShadow: '0 0 40px rgba(147,51,234,0.25)',
+              border: '2px solid #9333ea',
+              boxShadow: [
+                '0 0 0 5px #0d0d1a',
+                '0 0 0 7px rgba(147,51,234,0.55)',
+                '0 0 25px 6px rgba(147,51,234,0.45)',
+                '0 0 60px 12px rgba(147,51,234,0.2)',
+              ].join(', '),
             }}
           >
             <Image
@@ -89,13 +94,6 @@ export default function About() {
               sizes="220px"
               className="object-cover"
               priority
-            />
-            {/* Purple overlay shimmer */}
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background: 'linear-gradient(135deg, rgba(147,51,234,0.08), transparent 60%)',
-              }}
             />
           </div>
 
