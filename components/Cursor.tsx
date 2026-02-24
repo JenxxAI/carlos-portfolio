@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function Cursor() {
   const cursorRef = useRef<HTMLDivElement>(null)
@@ -9,8 +9,16 @@ export default function Cursor() {
   const mouseY = useRef(0)
   const ringX = useRef(0)
   const ringY = useRef(0)
+  const [isPointer, setIsPointer] = useState(false)
 
   useEffect(() => {
+    // Only activate on real pointer (mouse) devices, not touch screens
+    if (!window.matchMedia('(pointer: fine)').matches) return
+    setIsPointer(true)
+  }, [])
+
+  useEffect(() => {
+    if (!isPointer) return
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.current = e.clientX
       mouseY.current = e.clientY
@@ -52,7 +60,9 @@ export default function Cursor() {
       document.removeEventListener('mousemove', handleMouseMove)
       cancelAnimationFrame(raf)
     }
-  }, [])
+  }, [isPointer])
+
+  if (!isPointer) return null
 
   return (
     <>

@@ -15,8 +15,11 @@
   --glow: 0 0 40px rgba(147, 51, 234, 0.3);
 }
 
-* {
-  cursor: none !important;
+/* Hide system cursor only on real pointer (mouse) devices */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
 }
 
 body {
