@@ -16,6 +16,7 @@ export const metadata: Metadata = {
     title: 'Carlos Miguel V. Torres — Frontend Developer',
     description: 'Passionate Frontend Developer building clean, interactive web experiences.',
     type: 'website',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630 }],
   },
 }
 

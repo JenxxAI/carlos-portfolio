@@ -1,19 +1,35 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const links = [
-  { href: '/#skills', label: 'Skills' },
-  { href: '/#projects', label: 'Projects' },
-  { href: '/#about', label: 'About' },
-  { href: '/#contact', label: 'Contact' },
+  { href: '#hero',       id: 'hero',       label: 'Home' },
+  { href: '#skills',     id: 'skills',     label: 'Skills' },
+  { href: '#experience', id: 'experience', label: 'Experience' },
+  { href: '#projects',   id: 'projects',   label: 'Projects' },
+  { href: '#about',      id: 'about',      label: 'About' },
+  { href: '#contact',    id: 'contact',    label: 'Contact' },
 ]
 
 export default function Navbar() {
-  const pathname = usePathname()
   const [open, setOpen] = useState(false)
+  const [active, setActive] = useState('hero')
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = []
+    links.forEach(({ id }) => {
+      const el = document.getElementById(id)
+      if (!el) return
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActive(id) },
+        { rootMargin: '-40% 0px -55% 0px' }
+      )
+      obs.observe(el)
+      observers.push(obs)
+    })
+    return () => observers.forEach(o => o.disconnect())
+  }, [])
 
   return (
     <nav
@@ -29,15 +45,22 @@ export default function Navbar() {
           CM<span className="text-purple">.</span>Torres
         </Link>
 
-        <ul className="hidden md:flex gap-10 list-none">
+        <ul className="hidden md:flex gap-8 list-none">
           {links.map(link => (
             <li key={link.href}>
-              <Link
+              <a
                 href={link.href}
-                className="font-mono text-xs text-muted uppercase tracking-widest hover:text-purple-light transition-colors duration-200"
+                className="relative font-mono text-xs uppercase tracking-widest transition-colors duration-200"
+                style={{ color: active === link.id ? '#c084fc' : '#6b6b8a' }}
               >
                 {link.label}
-              </Link>
+                {active === link.id && (
+                  <span
+                    className="absolute -bottom-1 left-0 right-0 h-px rounded-full"
+                    style={{ background: '#9333ea' }}
+                  />
+                )}
+              </a>
             </li>
           ))}
         </ul>
@@ -71,13 +94,14 @@ export default function Navbar() {
         >
           {links.map(link => (
             <li key={link.href} className="pt-3">
-              <Link
+              <a
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="font-mono text-xs text-muted uppercase tracking-widest hover:text-purple-light transition-colors duration-200"
+                className="font-mono text-xs uppercase tracking-widest transition-colors duration-200"
+                style={{ color: active === link.id ? '#c084fc' : '#6b6b8a' }}
               >
                 {link.label}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>

@@ -1,4 +1,9 @@
+'use client'
+
 import ScrollReveal from './ScrollReveal'
+import { useState } from 'react'
+
+const EMAIL = 'carlosmigueltorres20020@gmail.com'
 
 const socials = [
   {
@@ -22,6 +27,13 @@ const socials = [
 ]
 
 export default function Contact() {
+  const [copied, setCopied] = useState(false)
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText(EMAIL)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
   return (
     <section id="contact" className="py-32 px-4 sm:px-8 lg:px-16 text-center" style={{ background: '#080810' }}>
       <div className="max-w-xl mx-auto">
@@ -46,7 +58,7 @@ export default function Contact() {
         </ScrollReveal>
         <ScrollReveal delay={160}>
           <a
-            href="mailto:carlosmigueltorres20020@gmail.com"
+            href={`mailto:${EMAIL}`}
             className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-lg text-white font-medium text-lg transition-all duration-200"
             style={{
               background: '#9333ea',
@@ -55,6 +67,21 @@ export default function Contact() {
           >
             Say Hello 👋
           </a>
+        </ScrollReveal>
+
+        {/* Copy email */}
+        <ScrollReveal delay={180}>
+          <button
+            onClick={copyEmail}
+            className="inline-flex items-center gap-2 mt-4 font-mono text-xs tracking-widest transition-colors duration-200"
+            style={{ color: copied ? '#c084fc' : '#6b6b8a' }}
+          >
+            {copied ? (
+              <><CheckIcon /> Copied!</>
+            ) : (
+              <><CopyIcon /> {EMAIL}</>
+            )}
+          </button>
         </ScrollReveal>
 
         <ScrollReveal delay={200}>
@@ -79,5 +106,22 @@ export default function Contact() {
         </ScrollReveal>
       </div>
     </section>
+  )
+}
+
+function CopyIcon() {
+  return (
+    <svg width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+      <rect x="9" y="9" width="13" height="13" rx="2" />
+      <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
+    </svg>
+  )
+}
+
+function CheckIcon() {
+  return (
+    <svg width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+      <path d="M20 6L9 17l-5-5" />
+    </svg>
   )
 }
