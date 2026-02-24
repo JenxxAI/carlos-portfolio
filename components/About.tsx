@@ -1,5 +1,6 @@
 import ScrollReveal from './ScrollReveal'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const stats = [
   { num: '4+', label: 'Languages' },
@@ -68,10 +69,39 @@ export default function About() {
         </ScrollReveal>
       </div>
 
-      {/* Right: stats grid */}
+      {/* Right: avatar + stats grid */}
       <ScrollReveal delay={100}>
-        <div className="grid grid-cols-2 gap-4">
-          {stats.map(stat => (
+        <div className="flex flex-col items-center gap-6">
+          {/* Avatar */}
+          <div
+            className="relative rounded-2xl overflow-hidden"
+            style={{
+              width: 220,
+              height: 220,
+              border: '2px solid #1e1e35',
+              boxShadow: '0 0 40px rgba(147,51,234,0.25)',
+            }}
+          >
+            <Image
+              src="https://avatars.githubusercontent.com/JenxxAI?size=440"
+              alt="Carlos Miguel V. Torres"
+              fill
+              sizes="220px"
+              className="object-cover"
+              priority
+            />
+            {/* Purple overlay shimmer */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: 'linear-gradient(135deg, rgba(147,51,234,0.08), transparent 60%)',
+              }}
+            />
+          </div>
+
+          {/* Stats grid */}
+          <div className="grid grid-cols-2 gap-4 w-full">
+            {stats.map(stat => (
             <div
               key={stat.label}
               className="card-hover rounded-xl p-6 text-center"
@@ -88,6 +118,7 @@ export default function About() {
               </div>
             </div>
           ))}
+        </div>
         </div>
       </ScrollReveal>
     </section>
