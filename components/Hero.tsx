@@ -84,6 +84,18 @@ export default function Hero() {
             <GitIcon />
             View Projects
           </Link>
+          <a
+            href="/Carlos_Torres_Resume.pdf"
+            download
+            className="inline-flex items-center gap-2 px-7 py-3 rounded-lg font-medium text-white transition-all duration-200"
+            style={{
+              border: '1px solid #581c87',
+              background: 'rgba(147,51,234,0.1)',
+            }}
+          >
+            <DownloadIcon />
+            Download CV
+          </a>
           <Link
             href="#contact"
             className="inline-flex items-center gap-2 px-7 py-3 rounded-lg font-normal text-white transition-all duration-200"
@@ -113,6 +125,14 @@ export default function Hero() {
         SCROLL
       </div>
     </section>
+  )
+}
+
+function DownloadIcon() {
+  return (
+    <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+      <path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17" />
+    </svg>
   )
 }
 

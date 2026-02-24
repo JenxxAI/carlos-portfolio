@@ -46,7 +46,7 @@ export default function Contact() {
         </ScrollReveal>
         <ScrollReveal delay={160}>
           <a
-            href="mailto:carlosmiguel@email.com"
+            href="mailto:carlosmigueltorres20020@gmail.com"
             className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-lg text-white font-medium text-lg transition-all duration-200"
             style={{
               background: '#9333ea',

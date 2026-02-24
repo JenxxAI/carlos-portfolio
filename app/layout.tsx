@@ -9,7 +9,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: 'Carlos Miguel V. Torres — Frontend Developer',
-  description: "I'm Carlos, a passionate Frontend Developer who turns ideas into clean, interactive web experiences. I write code that not only works — it impresses.",
+  description: "I'm Carlos, a passionate Frontend Developer who turns ideas into clean, interactive web experiences. I write code that not only works — it impresses. Reach me at carlosmigueltorres20020@gmail.com",
   keywords: ['Frontend Developer', 'React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
   authors: [{ name: 'Carlos Miguel V. Torres' }],
   openGraph: {
