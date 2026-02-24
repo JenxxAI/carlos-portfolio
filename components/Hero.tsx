@@ -34,7 +34,7 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-3xl">
+      <div className="relative z-10 max-w-3xl w-full mx-auto sm:mx-0 text-center sm:text-left">
         {/* Badge */}
         <div
           className="animate-fade-up inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full text-purple-light font-mono text-xs tracking-widest"
@@ -52,8 +52,8 @@ export default function Hero() {
 
         {/* Heading */}
         <h1
-          className="animate-fade-up delay-100 font-syne font-extrabold leading-none tracking-tight mb-6"
-          style={{ fontSize: 'clamp(3rem, 8vw, 6.5rem)', letterSpacing: '-0.03em' }}
+          className="animate-fade-up delay-100 font-syne font-extrabold leading-none tracking-tight mb-6 text-4xl sm:text-6xl lg:text-8xl"
+          style={{ letterSpacing: '-0.03em' }}
         >
           Frontend
           <br />
@@ -62,7 +62,7 @@ export default function Hero() {
 
         {/* Bio */}
         <p
-          className="animate-fade-up delay-200 text-lg font-light leading-relaxed mb-10 max-w-xl"
+          className="animate-fade-up delay-200 text-lg font-light leading-relaxed mb-10 max-w-xl mx-auto sm:mx-0"
           style={{ color: '#a0a0c0' }}
         >
           I&apos;m{' '}
@@ -72,7 +72,7 @@ export default function Hero() {
         </p>
 
         {/* CTA */}
-        <div className="animate-fade-up delay-300 flex gap-4 flex-wrap">
+        <div className="animate-fade-up delay-300 flex gap-4 flex-wrap justify-center sm:justify-start">
           <Link
             href="#projects"
             className="inline-flex items-center gap-2 px-7 py-3 rounded-lg font-medium text-white transition-all duration-200"
