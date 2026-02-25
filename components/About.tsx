@@ -76,8 +76,8 @@ export default function About() {
           <div
             className="relative rounded-full overflow-hidden flex-shrink-0"
             style={{
-              width: 220,
-              height: 220,
+              width: 'clamp(160px, 40vw, 220px)',
+              height: 'clamp(160px, 40vw, 220px)',
               border: '2px solid #9333ea',
               boxShadow: [
                 '0 0 0 5px #0d0d1a',
@@ -91,27 +91,27 @@ export default function About() {
               src="https://avatars.githubusercontent.com/JenxxAI?size=440"
               alt="Carlos Miguel V. Torres"
               fill
-              sizes="220px"
+              sizes="(max-width: 640px) 40vw, 220px"
               className="object-cover"
               priority
             />
           </div>
 
           {/* Stats grid */}
-          <div className="grid grid-cols-2 gap-4 w-full">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 w-full">
             {stats.map(stat => (
             <div
               key={stat.label}
-              className="card-hover rounded-xl p-6 text-center"
+              className="card-hover rounded-xl p-4 sm:p-6 text-center"
               style={{ background: '#10101f', border: '1px solid #1e1e35' }}
             >
               <div
                 className="font-syne font-extrabold leading-none mb-1"
-                style={{ fontSize: '2.5rem', color: '#c084fc' }}
+                style={{ fontSize: 'clamp(1.8rem, 6vw, 2.5rem)', color: '#c084fc' }}
               >
                 {stat.num}
               </div>
-              <div className="text-sm" style={{ color: '#6b6b8a' }}>
+              <div className="text-xs sm:text-sm" style={{ color: '#6b6b8a' }}>
                 {stat.label}
               </div>
             </div>

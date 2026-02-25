@@ -65,7 +65,7 @@ export default function Contact() {
       >
         <div
           className="relative rounded-2xl overflow-hidden shadow-2xl"
-          style={{ border: '1px solid #2a2a45', maxWidth: 320, width: '100%' }}
+          style={{ border: '1px solid #2a2a45', maxWidth: 320, width: '100%', maxHeight: '90vh', overflowY: 'auto' }}
           onClick={e => e.stopPropagation()}
         >
           <Image
@@ -123,7 +123,7 @@ export default function Contact() {
         <ScrollReveal delay={160}>
           <a
             href={`mailto:${EMAIL}`}
-            className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-lg text-white font-medium text-lg transition-all duration-200"
+            className="inline-flex items-center justify-center gap-2 px-6 sm:px-10 py-4 rounded-lg text-white font-medium text-base sm:text-lg transition-all duration-200 w-full sm:w-auto"
             style={{
               background: '#9333ea',
               boxShadow: '0 0 20px rgba(147,51,234,0.4)',
@@ -137,23 +137,23 @@ export default function Contact() {
         <ScrollReveal delay={180}>
           <button
             onClick={copyEmail}
-            className="inline-flex items-center gap-2 mt-4 font-mono text-xs tracking-widest transition-colors duration-200"
+            className="inline-flex items-center gap-2 mt-4 font-mono text-xs tracking-widest transition-colors duration-200 max-w-full overflow-hidden"
             style={{ color: copied ? '#c084fc' : '#6b6b8a' }}
           >
             {copied ? (
               <><CheckIcon /> Copied!</>
             ) : (
-              <><CopyIcon /> {EMAIL}</>
+              <><CopyIcon /> <span className="truncate">{EMAIL}</span></>
             )}
           </button>
         </ScrollReveal>
 
         {/* Payment Methods */}
         <ScrollReveal delay={190}>
-          <div className="flex justify-center flex-wrap gap-3 mt-6">
+          <div className="flex flex-col sm:flex-row justify-center gap-3 mt-6">
             <button
               onClick={openQR}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-mono text-xs tracking-widest transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 sm:py-2.5 rounded-lg font-mono text-xs tracking-widest transition-all duration-200 w-full sm:w-auto"
               style={{
                 border: '1px solid #1e1e35',
                 color: '#6b6b8a',
@@ -164,7 +164,7 @@ export default function Contact() {
             </button>
             <button
               onClick={copyPaypal}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-mono text-xs tracking-widest transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 sm:py-2.5 rounded-lg font-mono text-xs tracking-widest transition-all duration-200 w-full sm:w-auto"
               style={{
                 border: '1px solid #1e1e35',
                 color: copiedPaypal ? '#c084fc' : '#6b6b8a',
@@ -177,14 +177,14 @@ export default function Contact() {
         </ScrollReveal>
 
         <ScrollReveal delay={200}>
-          <div className="flex justify-center flex-wrap gap-3 mt-8">
+          <div className="flex flex-col sm:flex-row justify-center flex-wrap gap-3 mt-8">
             {socials.map(social => (
               <a
                 key={social.label}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-mono text-xs tracking-widest transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 sm:py-2.5 rounded-lg font-mono text-xs tracking-widest transition-all duration-200 w-full sm:w-auto"
                 style={{
                   border: '1px solid #1e1e35',
                   color: '#6b6b8a',

@@ -87,12 +87,12 @@ export default function Experience() {
 
                 {/* Card */}
                 <div
-                  className="card-hover flex-1 rounded-2xl p-6"
+                  className="card-hover flex-1 rounded-2xl p-4 sm:p-6"
                   style={{ background: '#10101f', border: '1px solid #1e1e35' }}
                 >
-                  <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
                     <div>
-                      <h3 className="font-syne font-bold text-white text-lg leading-tight">
+                      <h3 className="font-syne font-bold text-white text-base sm:text-lg leading-tight">
                         {exp.title}
                       </h3>
                       <p className="font-mono text-xs mt-1" style={{ color: typeColor[exp.type] }}>
@@ -100,7 +100,7 @@ export default function Experience() {
                       </p>
                     </div>
                     <span
-                      className="font-mono text-xs px-3 py-1 rounded-full flex-shrink-0"
+                      className="font-mono text-xs px-3 py-1 rounded-full self-start sm:flex-shrink-0"
                       style={{
                         background: 'rgba(147,51,234,0.1)',
                         border: '1px solid rgba(147,51,234,0.2)',

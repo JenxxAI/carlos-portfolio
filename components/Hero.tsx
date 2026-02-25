@@ -72,10 +72,10 @@ export default function Hero() {
         </p>
 
         {/* CTA */}
-        <div className="animate-fade-up delay-300 flex gap-4 flex-wrap justify-center sm:justify-start">
+        <div className="animate-fade-up delay-300 flex flex-col sm:flex-row gap-3 sm:gap-4 flex-wrap justify-center sm:justify-start">
           <Link
             href="#projects"
-            className="inline-flex items-center gap-2 px-7 py-3 rounded-lg font-medium text-white transition-all duration-200"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 sm:py-3 rounded-lg font-medium text-white transition-all duration-200 w-full sm:w-auto"
             style={{
               background: '#9333ea',
               boxShadow: '0 0 20px rgba(147,51,234,0.4)',
@@ -87,7 +87,7 @@ export default function Hero() {
           <a
             href="/Carlos_Torres_Resume.pdf"
             download
-            className="inline-flex items-center gap-2 px-7 py-3 rounded-lg font-medium text-white transition-all duration-200"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 sm:py-3 rounded-lg font-medium text-white transition-all duration-200 w-full sm:w-auto"
             style={{
               border: '1px solid #581c87',
               background: 'rgba(147,51,234,0.1)',
@@ -98,7 +98,7 @@ export default function Hero() {
           </a>
           <Link
             href="#contact"
-            className="inline-flex items-center gap-2 px-7 py-3 rounded-lg font-normal text-white transition-all duration-200"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 sm:py-3 rounded-lg font-normal text-white transition-all duration-200 w-full sm:w-auto"
             style={{
               border: '1px solid #1e1e35',
               background: 'rgba(255,255,255,0.03)',
