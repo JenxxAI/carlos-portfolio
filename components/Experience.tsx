@@ -4,36 +4,45 @@ const experiences = [
   {
     type: 'education',
     title: 'Bachelor of Science in Information Technology',
-    org: 'University / College',
-    period: '2021 – Present',
+    org: 'State University of Northern Negros',
+    period: '2022 – Present',
     description:
-      'Focused on software engineering, web technologies, and computer science fundamentals. Building strong foundations in algorithms, databases, and system design.',
+      'Studying at the College of Information Communication Technology and Engineering (CICTE). Focused on software engineering, web technologies, computer science fundamentals, networking, and system design.',
     icon: '🎓',
   },
   {
-    type: 'freelance',
-    title: 'Freelance Frontend Developer',
-    org: 'Self-employed',
-    period: '2023 – Present',
+    type: 'intern',
+    title: 'Software Quality Assurance Intern',
+    org: 'Growsari · Bonifacio Global City, Metro Manila',
+    period: 'Jan 2026 – Present',
     description:
-      'Designing and developing custom web applications and portfolio sites for clients. Specialising in React, Next.js, and Tailwind CSS to deliver polished, performant experiences.',
-    icon: '💼',
+      'Performing manual, functional, exploratory, regression, and end-to-end (E2E) testing on web and mobile platforms. Utilizing Android Studio, Postman API, and MySQL to validate software quality and ensure reliable product releases in a hybrid work setup.',
+    icon: '🧪',
   },
   {
-    type: 'project',
-    title: 'Open-Source & Personal Projects',
-    org: 'GitHub · JenxxAI',
-    period: '2022 – Present',
+    type: 'volunteer',
+    title: 'CICTE Tech Support · Student Volunteer',
+    org: 'College of Information Communication Technology and Engineering – SUNN',
+    period: 'Jun 2023 – Present',
     description:
-      'Actively building and publishing projects exploring automation with N8N, computer vision with Roboflow, and interactive interfaces. Each project is a deliberate step toward mastery.',
-    icon: '🚀',
+      'Providing IT technical support to faculty, staff, and students — troubleshooting hardware, software, and network issues. Installing and configuring Windows 10/11 systems, performing computer reformatting and diagnostics, and assisting in computer lab setup, maintenance, and on-site support during university events.',
+    icon: '🖥️',
+  },
+  {
+    type: 'volunteer',
+    title: 'Student Volunteer – Special Program Committee',
+    org: 'Supreme Student Council · State University of Northern Negros',
+    period: 'Jul 2022 – Jan 2026',
+    description:
+      'Assisted the SSC in planning and executing university-wide events — assemblies, seminars, orientations, and leadership programs. Handled registration, crowd control, information dissemination, AV/equipment setup, and promoted SSC programs through digital materials and social media.',
+    icon: '🤝',
   },
 ]
 
 const typeColor: Record<string, string> = {
   education: '#c084fc',
-  freelance: '#9333ea',
-  project: '#7c3aed',
+  intern:    '#9333ea',
+  volunteer: '#7c3aed',
 }
 
 export default function Experience() {
