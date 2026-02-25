@@ -12,6 +12,17 @@ export const projects = [
   },
   {
     id: '02',
+    title: 'AI-Powered Menu Recommender',
+    description:
+      'An AI-powered recipe assistant that recommends meals based on available ingredients. Users input what they have on hand and the system suggests dishes — reducing food waste and making meal planning effortless.',
+    tags: ['HTML & CSS', 'JavaScript', 'AI', 'Python'],
+    status: 'Completed',
+    statusColor: '#c084fc',
+    github: 'https://github.com/JenxxAI/Ai-Powered-Menu-recommender-base-on-available-ingredients',
+    live: null,
+  },
+  {
+    id: '03',
     title: 'More Coming Soon',
     description: 'Currently building exciting new projects. Stay tuned — great things are on the way.',
     tags: [],
