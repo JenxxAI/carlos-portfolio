@@ -2,15 +2,6 @@ import ScrollReveal from './ScrollReveal'
 
 const experiences = [
   {
-    type: 'education',
-    title: 'Bachelor of Science in Information Technology',
-    org: 'State University of Northern Negros',
-    period: '2022 – Present',
-    description:
-      'Studying at the College of Information Communication Technology and Engineering (CICTE). Focused on software engineering, web technologies, computer science fundamentals, networking, and system design.',
-    icon: '🎓',
-  },
-  {
     type: 'intern',
     title: 'Software Quality Assurance Intern',
     org: 'Growsari · Bonifacio Global City, Metro Manila',
@@ -36,6 +27,15 @@ const experiences = [
     description:
       'Assisted the SSC in planning and executing university-wide events — assemblies, seminars, orientations, and leadership programs. Handled registration, crowd control, information dissemination, AV/equipment setup, and promoted SSC programs through digital materials and social media.',
     icon: '🤝',
+  },
+  {
+    type: 'education',
+    title: 'Bachelor of Science in Information Technology',
+    org: 'State University of Northern Negros',
+    period: '2022 – Present',
+    description:
+      'Studying at the College of Information Communication Technology and Engineering (CICTE). Focused on software engineering, web technologies, computer science fundamentals, networking, and system design.',
+    icon: '🎓',
   },
 ]
 
