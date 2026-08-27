@@ -22,7 +22,7 @@ export default function NotFound() {
 
       <div className="relative z-10">
         <p className="font-mono text-xs text-purple tracking-[0.15em] uppercase mb-4">
-          // 404
+          {'// 404'}
         </p>
         <h1
           className="font-syne font-extrabold text-white mb-4"

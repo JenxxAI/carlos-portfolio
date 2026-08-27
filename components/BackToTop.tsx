@@ -17,18 +17,19 @@ export default function BackToTop() {
     <button
       onClick={scrollTop}
       aria-label="Back to top"
-      className="fixed bottom-8 right-6 z-50 flex items-center justify-center rounded-full transition-all duration-300"
+      className="fixed bottom-6 right-4 sm:bottom-8 sm:right-6 z-50 flex items-center justify-center rounded-full transition-all duration-300"
       style={{
         width: 44,
         height: 44,
-        background: '#9333ea',
-        boxShadow: '0 0 20px rgba(147,51,234,0.5)',
+        background: '#68ddff',
+        color: '#071018',
+        boxShadow: '0 0 20px rgba(104,221,255,0.24)',
         opacity: visible ? 1 : 0,
         pointerEvents: visible ? 'auto' : 'none',
         transform: visible ? 'translateY(0)' : 'translateY(12px)',
       }}
     >
-      <svg width="18" height="18" fill="none" stroke="white" strokeWidth="2.5" viewBox="0 0 24 24">
+      <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
         <path d="M18 15l-6-6-6 6" />
       </svg>
     </button>

@@ -1,122 +1,108 @@
-import ScrollReveal from './ScrollReveal'
-import Link from 'next/link'
 import Image from 'next/image'
+import ScrollReveal from './ScrollReveal'
 
-const stats = [
-  { num: '4+', label: 'Languages' },
-  { num: '10+', label: 'Tools Mastered' },
-  { num: '1', label: 'Live Project' },
-  { num: '∞', label: 'Ideas in Queue' },
+const principles = [
+  { title: 'Evidence first', text: 'Reproduce, observe, document, then decide.' },
+  { title: 'People centered', text: 'A technical fix matters most when it helps someone move forward.' },
+  { title: 'Keep learning', text: 'Every support case, test cycle, and project expands the toolkit.' },
+]
+
+const foundations = [
+  {
+    title: 'Bachelor of Science in Information Technology',
+    organization: 'State University of Northern Negros',
+    period: '2022 – Present',
+  },
+  {
+    title: 'Student Volunteer · Special Program Committee',
+    organization: 'Supreme Student Council',
+    period: 'Jul 2022 – Jan 2026',
+  },
+  {
+    title: 'DSWD Cash-for-Work',
+    organization: 'College support engagement',
+    period: 'Jun 2024 – Apr 2025',
+  },
 ]
 
 export default function About() {
   return (
-    <section
-      id="about"
-      className="py-24 px-4 sm:px-8 lg:px-16 grid gap-16 items-center"
-      style={{
-        background: '#0d0d1a',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))',
-      }}
-    >
-      {/* Left: text */}
-      <div>
-        <ScrollReveal>
-          <p className="font-mono text-xs text-purple tracking-[0.15em] uppercase mb-2">
-            // About Me
-          </p>
-        </ScrollReveal>
-        <ScrollReveal delay={80}>
-          <h2
-            className="font-syne font-bold mb-6"
-            style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', letterSpacing: '-0.02em' }}
-          >
-            The Developer <span className="text-purple-light">Behind the Code</span>
-          </h2>
+    <section id="about" className="about-section section-shell">
+      <div className="about-layout">
+        <ScrollReveal className="about-portrait-wrap">
+          <div className="about-portrait">
+            <div className="about-portrait__frame">
+              <Image
+                src="https://avatars.githubusercontent.com/JenxxAI?size=720"
+                alt="Carlos Miguel Torres"
+                fill
+                sizes="(max-width: 800px) 90vw, 38vw"
+                className="object-cover"
+                priority
+              />
+            </div>
+            <div className="about-portrait__caption">
+              <span>Based in the Philippines</span>
+              <span>GMT+8</span>
+            </div>
+          </div>
         </ScrollReveal>
 
-        <ScrollReveal delay={120}>
-          <p className="leading-relaxed mb-4 font-light" style={{ color: '#a0a0c0' }}>
-            Hi! I&apos;m <strong className="text-white font-medium">Carlos Miguel V. Torres</strong>, a
-            Frontend Developer with a love for crafting beautiful, functional interfaces. I
-            believe great UI is invisible — it just feels right.
-          </p>
-        </ScrollReveal>
-        <ScrollReveal delay={160}>
-          <p className="leading-relaxed mb-4 font-light" style={{ color: '#a0a0c0' }}>
-            I enjoy combining clean code with great design, and I&apos;m always exploring new
-            tools like N8N for automation and Roboflow for computer vision — because the best
-            developers are always learning.
-          </p>
-        </ScrollReveal>
-        <ScrollReveal delay={200}>
-          <p className="leading-relaxed font-light" style={{ color: '#a0a0c0' }}>
-            When I&apos;m not coding, I&apos;m probably thinking about my next project or
-            figuring out how to make something look even better.
-          </p>
-        </ScrollReveal>
+        <div className="about-copy">
+          <ScrollReveal>
+            <p className="section-kicker">{'// About Carlos'}</p>
+            <h2>Built between <span>repair rooms</span> and <span>release cycles.</span></h2>
+          </ScrollReveal>
 
-        <ScrollReveal delay={240}>
-          <Link
-            href="https://github.com/JenxxAI"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mt-6 px-6 py-3 rounded-lg text-white transition-all duration-200 font-normal text-sm"
-            style={{ border: '1px solid #1e1e35', background: 'rgba(255,255,255,0.03)' }}
-          >
-            View GitHub Profile →
-          </Link>
-        </ScrollReveal>
+          <ScrollReveal delay={80}>
+            <p className="about-lead">
+              My path into technology did not begin with a single job title. It began by helping
+              people get their computers, software, and equipment working again.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal delay={120}>
+            <p>
+              Quality assurance taught me to turn that troubleshooting instinct into a repeatable
+              process: reproduce the issue, collect evidence, understand risk, and communicate
+              clearly. Today, as a Technical Support Engineer at Growsari, those two foundations
+              meet in the same work.
+            </p>
+          </ScrollReveal>
+
+          <div className="principle-list">
+            {principles.map((principle, index) => (
+              <ScrollReveal key={principle.title} delay={160 + index * 60}>
+                <article>
+                  <span>0{index + 1}</span>
+                  <div>
+                    <h3>{principle.title}</h3>
+                    <p>{principle.text}</p>
+                  </div>
+                </article>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
       </div>
 
-      {/* Right: avatar + stats grid */}
-      <ScrollReveal delay={100}>
-        <div className="flex flex-col items-center gap-6">
-          {/* Avatar */}
-          <div
-            className="relative rounded-full overflow-hidden flex-shrink-0"
-            style={{
-              width: 'clamp(160px, 40vw, 220px)',
-              height: 'clamp(160px, 40vw, 220px)',
-              border: '2px solid #9333ea',
-              boxShadow: [
-                '0 0 0 5px #0d0d1a',
-                '0 0 0 7px rgba(147,51,234,0.55)',
-                '0 0 25px 6px rgba(147,51,234,0.45)',
-                '0 0 60px 12px rgba(147,51,234,0.2)',
-              ].join(', '),
-            }}
-          >
-            <Image
-              src="https://avatars.githubusercontent.com/JenxxAI?size=440"
-              alt="Carlos Miguel V. Torres"
-              fill
-              sizes="(max-width: 640px) 40vw, 220px"
-              className="object-cover"
-              priority
-            />
+      <ScrollReveal>
+        <div className="foundation-block">
+          <div>
+            <p className="section-kicker">{'// Education & community'}</p>
+            <h3>The experiences that shaped the work.</h3>
           </div>
-
-          {/* Stats grid */}
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 w-full">
-            {stats.map(stat => (
-            <div
-              key={stat.label}
-              className="card-hover rounded-xl p-4 sm:p-6 text-center"
-              style={{ background: '#10101f', border: '1px solid #1e1e35' }}
-            >
-              <div
-                className="font-syne font-extrabold leading-none mb-1"
-                style={{ fontSize: 'clamp(1.8rem, 6vw, 2.5rem)', color: '#c084fc' }}
-              >
-                {stat.num}
-              </div>
-              <div className="text-xs sm:text-sm" style={{ color: '#6b6b8a' }}>
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
+          <ul>
+            {foundations.map(item => (
+              <li key={item.title}>
+                <div>
+                  <strong>{item.title}</strong>
+                  <span>{item.organization}</span>
+                </div>
+                <time>{item.period}</time>
+              </li>
+            ))}
+          </ul>
         </div>
       </ScrollReveal>
     </section>

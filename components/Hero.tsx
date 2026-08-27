@@ -1,153 +1,112 @@
 import Link from 'next/link'
 
+const progression = [
+  { label: 'QA Intern', state: 'complete' },
+  { label: 'QA Engineer', state: 'complete' },
+  { label: 'TSE', state: 'active' },
+]
+
 export default function Hero() {
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex items-center overflow-hidden px-4 sm:px-8 lg:px-20 pt-32 pb-16"
-    >
-      {/* Grid background */}
-      <div className="hero-grid" />
+    <section id="hero" className="hero-section">
+      <div className="hero-grid" aria-hidden="true" />
+      <div className="hero-glow hero-glow--one" aria-hidden="true" />
+      <div className="hero-glow hero-glow--two" aria-hidden="true" />
 
-      {/* Orbs */}
-      <div
-        className="animate-float pointer-events-none absolute rounded-full"
-        style={{
-          width: 500,
-          height: 500,
-          background: 'radial-gradient(circle, rgba(147,51,234,0.25), transparent 70%)',
-          filter: 'blur(80px)',
-          top: -100,
-          right: -100,
-        }}
-      />
-      <div
-        className="animate-float-reverse pointer-events-none absolute rounded-full"
-        style={{
-          width: 300,
-          height: 300,
-          background: 'radial-gradient(circle, rgba(192,132,252,0.12), transparent 70%)',
-          filter: 'blur(80px)',
-          bottom: 0,
-          left: '10%',
-        }}
-      />
+      <div className="hero-content">
+        <div className="hero-copy">
+          <div className="availability-pill">
+            <span aria-hidden="true" />
+            Currently a Technical Support Engineer at Growsari
+          </div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-3xl w-full mx-auto sm:mx-0 text-center sm:text-left">
-        {/* Badge */}
-        <div
-          className="animate-fade-up inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full text-purple-light font-mono text-xs tracking-widest"
-          style={{
-            border: '1px solid #581c87',
-            background: 'rgba(147,51,234,0.08)',
-          }}
-        >
-          <span
-            className="animate-pulse-dot w-1.5 h-1.5 rounded-full"
-            style={{ background: '#9333ea' }}
-          />
-          Available for opportunities
+          <p className="hero-kicker">Support systems. Validate quality. Solve what matters.</p>
+          <h1>
+            Carlos Miguel
+            <span>Torres</span>
+          </h1>
+
+          <p className="hero-summary">
+            A <strong>Technical Support Engineer</strong> with a software-quality foundation and
+            hands-on experience across IT support, testing, automation, and web technologies.
+            I approach technical problems with evidence, empathy, and a bias for practical fixes.
+          </p>
+
+          <div className="hero-actions">
+            <Link href="#experience" className="button button--primary">
+              Trace my journey
+              <ArrowDownIcon />
+            </Link>
+            <a href="/Carlos_Torres_Resume.pdf" download className="button button--secondary">
+              Download résumé
+              <DownloadIcon />
+            </a>
+            <Link href="#contact" className="button button--text">
+              Let&apos;s connect <span aria-hidden="true">↗</span>
+            </Link>
+          </div>
+
+          <ul className="hero-principles" aria-label="Professional focus">
+            <li><span>01</span> Technical support</li>
+            <li><span>02</span> Software quality</li>
+            <li><span>03</span> Practical automation</li>
+          </ul>
         </div>
 
-        {/* Heading */}
-        <h1
-          className="animate-fade-up delay-100 font-syne font-extrabold leading-none tracking-tight mb-6 text-4xl sm:text-6xl lg:text-8xl"
-          style={{ letterSpacing: '-0.03em' }}
-        >
-          Frontend
-          <br />
-          <span className="gradient-text block">Developer</span>
-        </h1>
+        <div className="career-signal" aria-label="Career progression from QA Intern to Technical Support Engineer">
+          <div className="career-signal__eyebrow">
+            <span>CAREER_SIGNAL</span>
+            <span className="career-signal__live">LIVE</span>
+          </div>
 
-        {/* Bio */}
-        <p
-          className="animate-fade-up delay-200 text-lg font-light leading-relaxed mb-10 max-w-xl mx-auto sm:mx-0"
-          style={{ color: '#a0a0c0' }}
-        >
-          I&apos;m{' '}
-          <strong className="text-white font-medium">Carlos Miguel V. Torres</strong> — a
-          passionate Frontend Developer who turns ideas into clean, interactive web
-          experiences. I write code that not only works — it impresses. 🚀
-        </p>
+          <div className="signal-visual" aria-hidden="true">
+            <div className="signal-ring signal-ring--outer" />
+            <div className="signal-ring signal-ring--middle" />
+            <div className="signal-ring signal-ring--inner" />
+            <div className="signal-sweep" />
+            <div className="signal-core">
+              <span>Current</span>
+              <strong>TSE</strong>
+            </div>
+            <span className="signal-node signal-node--one" />
+            <span className="signal-node signal-node--two" />
+            <span className="signal-node signal-node--three" />
+          </div>
 
-        {/* CTA */}
-        <div className="animate-fade-up delay-300 flex flex-col sm:flex-row gap-3 sm:gap-4 flex-wrap justify-center sm:justify-start">
-          <Link
-            href="#projects"
-            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 sm:py-3 rounded-lg font-medium text-white transition-all duration-200 w-full sm:w-auto"
-            style={{
-              background: '#9333ea',
-              boxShadow: '0 0 20px rgba(147,51,234,0.4)',
-            }}
-          >
-            <GitIcon />
-            View Projects
-          </Link>
-          <a
-            href="/Carlos_Torres_Resume.pdf"
-            download
-            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 sm:py-3 rounded-lg font-medium text-white transition-all duration-200 w-full sm:w-auto"
-            style={{
-              border: '1px solid #581c87',
-              background: 'rgba(147,51,234,0.1)',
-            }}
-          >
-            <DownloadIcon />
-            Download CV
-          </a>
-          <Link
-            href="#contact"
-            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 sm:py-3 rounded-lg font-normal text-white transition-all duration-200 w-full sm:w-auto"
-            style={{
-              border: '1px solid #1e1e35',
-              background: 'rgba(255,255,255,0.03)',
-            }}
-          >
-            <MailIcon />
-            Get in Touch
-          </Link>
+          <ol className="career-signal__steps">
+            {progression.map((step, index) => (
+              <li key={step.label} className={step.state === 'active' ? 'is-active' : ''}>
+                <span>0{index + 1}</span>
+                <div>
+                  <small>{step.state === 'active' ? 'Current role' : 'Completed'}</small>
+                  <strong>{step.label}</strong>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
 
-      {/* Scroll hint */}
-      <div
-        className="animate-fade-in delay-1000 absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 font-mono text-xs tracking-widest"
-        style={{ color: '#6b6b8a' }}
-      >
-        <div
-          className="animate-scroll-line w-px"
-          style={{
-            height: 40,
-            background: 'linear-gradient(to bottom, #9333ea, transparent)',
-          }}
-        />
-        SCROLL
+      <div className="hero-scroll-cue" aria-hidden="true">
+        <span />
+        Scroll to follow the signal
       </div>
     </section>
   )
 }
 
+function ArrowDownIcon() {
+  return (
+    <svg width="17" height="17" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 5v14m0 0 6-6m-6 6-6-6" />
+    </svg>
+  )
+}
+
 function DownloadIcon() {
   return (
-    <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-      <path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17" />
-    </svg>
-  )
-}
-
-function GitIcon() {
-  return (
-    <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-      <path d="M3 7l9 6 9-6M3 17l9 6 9-6" />
-    </svg>
-  )
-}
-
-function MailIcon() {
-  return (
-    <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-      <path d="M4 4h16v16H4z" /><path d="M4 4l8 8 8-8" />
+    <svg width="17" height="17" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19h16" />
     </svg>
   )
 }

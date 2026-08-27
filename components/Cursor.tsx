@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 export default function Cursor() {
   const cursorRef = useRef<HTMLDivElement>(null)
@@ -9,16 +9,10 @@ export default function Cursor() {
   const mouseY = useRef(0)
   const ringX = useRef(0)
   const ringY = useRef(0)
-  const [isPointer, setIsPointer] = useState(false)
-
   useEffect(() => {
-    // Only activate on real pointer (mouse) devices, not touch screens
-    if (!window.matchMedia('(pointer: fine)').matches) return
-    setIsPointer(true)
-  }, [])
-
-  useEffect(() => {
-    if (!isPointer) return
+    const finePointer = window.matchMedia('(pointer: fine)').matches
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (!finePointer || reducedMotion) return
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.current = e.clientX
       mouseY.current = e.clientY
@@ -28,6 +22,7 @@ export default function Cursor() {
       }
     }
 
+    let raf = 0
     const animateRing = () => {
       ringX.current += (mouseX.current - ringX.current) * 0.12
       ringY.current += (mouseY.current - ringY.current) * 0.12
@@ -35,9 +30,9 @@ export default function Cursor() {
         ringRef.current.style.left = ringX.current + 'px'
         ringRef.current.style.top = ringY.current + 'px'
       }
-      requestAnimationFrame(animateRing)
+      raf = requestAnimationFrame(animateRing)
     }
-    const raf = requestAnimationFrame(animateRing)
+    raf = requestAnimationFrame(animateRing)
 
     const handleEnter = () => {
       if (cursorRef.current) cursorRef.current.style.transform = 'translate(-50%,-50%) scale(2)'
@@ -59,10 +54,12 @@ export default function Cursor() {
     return () => {
       document.removeEventListener('mousemove', handleMouseMove)
       cancelAnimationFrame(raf)
+      interactables.forEach(el => {
+        el.removeEventListener('mouseenter', handleEnter)
+        el.removeEventListener('mouseleave', handleLeave)
+      })
     }
-  }, [isPointer])
-
-  if (!isPointer) return null
+  }, [])
 
   return (
     <>

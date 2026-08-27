@@ -4,12 +4,12 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 const links = [
-  { href: '#hero',       id: 'hero',       label: 'Home' },
-  { href: '#skills',     id: 'skills',     label: 'Skills' },
-  { href: '#experience', id: 'experience', label: 'Experience' },
-  { href: '#projects',   id: 'projects',   label: 'Projects' },
-  { href: '#about',      id: 'about',      label: 'About' },
-  { href: '#contact',    id: 'contact',    label: 'Contact' },
+  { href: '#hero', id: 'hero', label: 'Home' },
+  { href: '#experience', id: 'experience', label: 'Journey' },
+  { href: '#skills', id: 'skills', label: 'Capabilities' },
+  { href: '#projects', id: 'projects', label: 'Work' },
+  { href: '#about', id: 'about', label: 'About' },
+  { href: '#contact', id: 'contact', label: 'Contact' },
 ]
 
 export default function Navbar() {
@@ -18,94 +18,92 @@ export default function Navbar() {
 
   useEffect(() => {
     const observers: IntersectionObserver[] = []
+
     links.forEach(({ id }) => {
-      const el = document.getElementById(id)
-      if (!el) return
-      const obs = new IntersectionObserver(
-        ([entry]) => { if (entry.isIntersecting) setActive(id) },
-        { rootMargin: '-40% 0px -55% 0px' }
+      const element = document.getElementById(id)
+      if (!element) return
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActive(id)
+        },
+        { rootMargin: '-35% 0px -55% 0px' }
       )
-      obs.observe(el)
-      observers.push(obs)
+
+      observer.observe(element)
+      observers.push(observer)
     })
-    return () => observers.forEach(o => o.disconnect())
+
+    return () => observers.forEach(observer => observer.disconnect())
   }, [])
 
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false)
+    }
+
+    document.addEventListener('keydown', handleEscape)
+    document.body.style.overflow = open ? 'hidden' : ''
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape)
+      document.body.style.overflow = ''
+    }
+  }, [open])
+
   return (
-    <nav
-      className="fixed top-0 left-0 right-0 z-[100]"
-      style={{
-        backdropFilter: 'blur(20px)',
-        background: 'rgba(8,8,16,0.7)',
-        borderBottom: '1px solid #1e1e35',
-      }}
-    >
-      <div className="flex justify-between items-center px-4 sm:px-8 lg:px-16 py-5">
-        <Link href="/" className="font-syne font-extrabold text-xl tracking-tight text-white">
-          CM<span className="text-purple">.</span>Torres
+    <nav className="site-nav" aria-label="Primary navigation">
+      <div className="site-nav__inner">
+        <Link href="#hero" className="brand-mark" onClick={() => setOpen(false)}>
+          <span className="brand-mark__monogram">CMT</span>
+          <span className="brand-mark__name">Carlos Torres</span>
         </Link>
 
-        <ul className="hidden md:flex gap-8 list-none">
+        <ul className="site-nav__desktop">
           {links.map(link => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="relative font-mono text-xs uppercase tracking-widest transition-colors duration-200"
-                style={{ color: active === link.id ? '#c084fc' : '#6b6b8a' }}
+                className={active === link.id ? 'is-active' : ''}
+                aria-current={active === link.id ? 'location' : undefined}
               >
                 {link.label}
-                {active === link.id && (
-                  <span
-                    className="absolute -bottom-1 left-0 right-0 h-px rounded-full"
-                    style={{ background: '#9333ea' }}
-                  />
-                )}
               </a>
             </li>
           ))}
         </ul>
 
-        {/* Mobile hamburger */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          type="button"
+          className={`menu-toggle ${open ? 'is-open' : ''}`}
           aria-label={open ? 'Close menu' : 'Open menu'}
-          onClick={() => setOpen(prev => !prev)}
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
+          onClick={() => setOpen(current => !current)}
         >
-          {open ? (
-            <>
-              <span className="w-5 h-px bg-muted block rotate-45 translate-y-[6.5px] transition-transform duration-200" />
-              <span className="w-5 h-px bg-muted block -rotate-45 transition-transform duration-200" />
-            </>
-          ) : (
-            <>
-              <span className="w-5 h-px bg-muted block transition-transform duration-200" />
-              <span className="w-5 h-px bg-muted block transition-transform duration-200" />
-              <span className="w-3 h-px bg-muted block transition-transform duration-200" />
-            </>
-          )}
+          <span />
+          <span />
         </button>
       </div>
 
-      {/* Mobile dropdown */}
-      {open && (
-        <ul
-          className="md:hidden flex flex-col list-none px-4 pb-5 gap-4"
-          style={{ borderTop: '1px solid #1e1e35' }}
-        >
-          {links.map(link => (
-            <li key={link.href} className="pt-3">
+      <div id="mobile-navigation" className={`mobile-menu ${open ? 'is-open' : ''}`} aria-hidden={!open}>
+        <ul>
+          {links.map((link, index) => (
+            <li key={link.href}>
               <a
                 href={link.href}
+                className={active === link.id ? 'is-active' : ''}
                 onClick={() => setOpen(false)}
-                className="font-mono text-xs uppercase tracking-widest transition-colors duration-200"
-                style={{ color: active === link.id ? '#c084fc' : '#6b6b8a' }}
+                tabIndex={open ? 0 : -1}
               >
+                <span>0{index + 1}</span>
                 {link.label}
               </a>
             </li>
           ))}
         </ul>
-      )}
+        <p>Technical support · Software quality · IT operations</p>
+      </div>
     </nav>
   )
 }

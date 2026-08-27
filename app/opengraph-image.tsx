@@ -1,7 +1,6 @@
 import { ImageResponse } from 'next/og'
 
-export const runtime = 'edge'
-export const alt = 'Carlos Miguel V. Torres — Frontend Developer'
+export const alt = 'Carlos Miguel Torres — Technical Support & Quality Engineer'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -10,7 +9,7 @@ export default function OGImage() {
     (
       <div
         style={{
-          background: '#080810',
+          background: '#070910',
           width: '100%',
           height: '100%',
           display: 'flex',
@@ -30,7 +29,7 @@ export default function OGImage() {
             width: 600,
             height: 600,
             borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(147,51,234,0.35), transparent 70%)',
+            background: 'radial-gradient(circle, rgba(104,221,255,0.26), transparent 70%)',
             filter: 'blur(60px)',
           }}
         />
@@ -49,8 +48,8 @@ export default function OGImage() {
           }}
         >
           <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#9333ea' }} />
-          <span style={{ color: '#c084fc', fontSize: 14, letterSpacing: '0.12em' }}>
-            AVAILABLE FOR OPPORTUNITIES
+          <span style={{ color: '#9cecff', fontSize: 14, letterSpacing: '0.12em' }}>
+            TECHNICAL SUPPORT ENGINEER · GROWSARI
           </span>
         </div>
 
@@ -79,18 +78,18 @@ export default function OGImage() {
             color: 'transparent',
           }}
         >
-          V. Torres
+          Torres
         </div>
 
         {/* Role */}
         <div style={{ fontSize: 24, color: '#8888a8', fontWeight: 300, marginBottom: 48 }}>
-          Frontend Developer · React · Next.js · TypeScript
+          Technical Support · Software Quality · IT Operations
         </div>
 
         {/* Footer */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <div style={{ fontSize: 20, fontWeight: 700, color: '#fff', letterSpacing: '-0.02em' }}>
-            CM<span style={{ color: '#9333ea' }}>.</span>Torres
+          <div style={{ display: 'flex', fontSize: 20, fontWeight: 700, color: '#fff', letterSpacing: '-0.02em' }}>
+            CMT<span style={{ color: '#68ddff' }}>.</span>
           </div>
           <div style={{ width: 1, height: 20, background: '#1e1e35' }} />
           <div style={{ fontSize: 14, color: '#6b6b8a', letterSpacing: '0.08em' }}>

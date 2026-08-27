@@ -8,18 +8,16 @@ import About from '@/components/About'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import BackToTop from '@/components/BackToTop'
-import Splash from '@/components/Splash'
 
 export default function Home() {
   return (
     <>
-      <Splash />
       <Cursor />
       <Navbar />
       <main>
         <Hero />
-        <Skills />
         <Experience />
+        <Skills />
         <Projects />
         <About />
         <Contact />
