@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-page-custom-font */
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
@@ -8,15 +9,32 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'Carlos Miguel V. Torres — Frontend Developer',
-  description: "I'm Carlos, a passionate Frontend Developer who turns ideas into clean, interactive web experiences. I write code that not only works — it impresses. Reach me at carlosmigueltorres20020@gmail.com",
-  keywords: ['Frontend Developer', 'React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+  metadataBase: new URL('https://carlos-portfolio-sand.vercel.app'),
+  title: 'Carlos Miguel Torres — Technical Support & Quality Engineer',
+  description:
+    'Technical Support Engineer at Growsari with a foundation in software quality, IT operations, troubleshooting, automation, and web development.',
+  keywords: [
+    'Technical Support Engineer',
+    'Quality Assurance Engineer',
+    'IT Support',
+    'Software Testing',
+    'Playwright',
+    'n8n',
+    'Carlos Miguel Torres',
+  ],
   authors: [{ name: 'Carlos Miguel V. Torres' }],
   openGraph: {
-    title: 'Carlos Miguel V. Torres — Frontend Developer',
-    description: 'Passionate Frontend Developer building clean, interactive web experiences.',
+    title: 'Carlos Miguel Torres — Technical Support & Quality Engineer',
+    description:
+      'From QA intern to QA engineer to Technical Support Engineer — solving technical problems with an evidence-first mindset.',
     type: 'website',
     images: [{ url: '/opengraph-image', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Carlos Miguel Torres — Technical Support & Quality Engineer',
+    description: 'Technical support, software quality, IT operations, and practical automation.',
+    images: ['/opengraph-image'],
   },
 }
 

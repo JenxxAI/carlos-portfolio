@@ -13,17 +13,27 @@ export default function ScrollReveal({ children, className = '', delay = 0 }: {
     const el = ref.current
     if (!el) return
 
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      el.classList.add('visible')
+      return
+    }
+
+    let timer: ReturnType<typeof setTimeout> | undefined
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => el.classList.add('visible'), delay)
+          timer = setTimeout(() => el.classList.add('visible'), delay)
           observer.unobserve(el)
         }
       },
       { threshold: 0.1 }
     )
     observer.observe(el)
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect()
+      if (timer) clearTimeout(timer)
+    }
   }, [delay])
 
   return (
